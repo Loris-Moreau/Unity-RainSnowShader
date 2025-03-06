@@ -145,7 +145,7 @@ using UnityEngine.Rendering;
 
                     |\
                     |a\         
-        gridSize  |  \
+	  gridSize  |  \
                     |   \
                     |    \
 
@@ -193,17 +193,15 @@ using UnityEngine.Rendering;
 
     // the mesh created has a 
     // center at [0,0], 
-    // min at [-.5, -.5] 
-    // max at [.5, .5]
+    // min at [-0.5, -0.5] 
+    // max at [0.5, 0.5]
     public void RebuildPrecipitationMesh() {
         Mesh mesh = new Mesh ();
         List<int> indicies = new List<int>();
         List<Vector3> vertices = new List<Vector3>();
         List<Vector3> uvs = new List<Vector3>();
         
-        // use 0 - 100 range instead of 0 to 1
-        // to avoid precision errors when subdivisions
-        // are to high
+        // use 0 - 100 range instead of 0 to 1 to avoid precision errors when subdivisions are to high
         float f = 100f / meshSubdivisions;
         int i  = 0;
         for (float x = 0.0f; x <= 100f; x += f) {
@@ -215,8 +213,7 @@ using UnityEngine.Rendering;
 
                 vertices.Add(new Vector3(x01 - .5f, 0, y01 - .5f));
 
-                // calcualte the threshold for this vertex
-                // to recreate the 'thinning out' effect
+                // calcualte the threshold for this vertex to recreate the 'thinning out' effect
                 float vertexIntensityThreshold = Mathf.Max(
                     (float)((x / f) % 4.0f) / 4.0f, 
                     (float)((y / f) % 4.0f) / 4.0f
@@ -244,8 +241,7 @@ using UnityEngine.Rendering;
 }
 
 #if UNITY_EDITOR
-// create a custom editor with a button
-// to trigger rebuilding of the render mesh
+// create a custom editor with a button to trigger rebuilding of the render mesh
 [CustomEditor(typeof(PrecipitationManager))] 
 public class PrecipitationManagerEditor : Editor {
 
