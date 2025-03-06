@@ -21,3 +21,9 @@
 - snow always face the camera(billboarding) (they're small & will be unseen if not facing the cam)
 
 - snow is uniform(circle-ish) while rain drops are elongated(rectangles) & the "wind" causes a "flutter" effect
+
+---
+
+# Showcase 
+
+![Rain and Snow Shader Showcase](https://github.com/Loris-Moreau/Unity-RainSnowShader/blob/main/Showcase/Rainy_Snowy_Weather_Unity_2023.2.20f1.gif)
